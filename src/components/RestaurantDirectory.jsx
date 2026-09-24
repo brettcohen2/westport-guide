@@ -1,8 +1,18 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard.jsx";
 
 export default function RestaurantDirectory({ restaurants, tags }) {
   const [activeTag, setActiveTag] = useState(null);
+
+  // If the page was linked to with ?tag=Something (e.g. from the homepage
+  // quick links), pre-select that filter on load.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tagParam = params.get("tag");
+    if (tagParam && tags.includes(tagParam)) {
+      setActiveTag(tagParam);
+    }
+  }, []);
 
   const filtered = useMemo(() => {
     if (!activeTag) return restaurants;
