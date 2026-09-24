@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Color tokens — warm & coastal, grounded in Westport's actual materials */
+  --color-bg: #FDFBF6;           /* warm paper, not stark white */
+  --color-bg-tint: #F5F1E7;      /* card/panel background */
+  --color-border: #ECE7DA;
+  --color-border-strong: #E0DACB;
+
+  --color-ink: #23282B;          /* primary text */
+  --color-ink-soft: #5C5F5A;     /* secondary text */
+  --color-ink-muted: #8A7A68;    /* tertiary / labels */
+
+  --color-sound: #3B5A6B;        /* Long Island Sound blue — primary accent */
+  --color-marsh: #5C6B4F;        /* marsh grass green — secondary accent */
+  --color-clay: #C4622D;         /* low-tide rust — sparing highlight */
+  --color-driftwood: #8A7A68;    /* warm taupe */
+  --color-shingle: #C6BEAC;      /* placeholder / photo-block fill */
+
+  /* Type */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 14px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 44px;
+
+  --radius: 8px;
+  --radius-sm: 6px;
+
+  --max-width: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+p { margin: 0; }
+
+a {
+  color: var(--color-sound);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 18px; }
+}

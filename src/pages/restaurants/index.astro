@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import RestaurantDirectory from "../../components/RestaurantDirectory.jsx";
+import { restaurants, getAllTags } from "../../data/restaurants.js";
+
+const tags = getAllTags();
+---
+<Layout title="Restaurants — Westport, Unfiltered">
+  <section class="wrap" style="padding: 24px 0 16px;">
+    <h1 style="font-size:24px; margin-bottom:6px;">Restaurants</h1>
+    <p style="font-size:13px; color: var(--color-ink-soft);">
+      Every place on this list has been eaten at, more than once, by an actual local.
+    </p>
+  </section>
+
+  <section class="wrap" style="padding-bottom: 40px;">
+    <RestaurantDirectory restaurants={restaurants} tags={tags} client:load />
+  </section>
+</Layout>
