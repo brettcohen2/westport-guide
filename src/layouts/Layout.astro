@@ -9,7 +9,7 @@ const { title = "Westport, Unfiltered" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
   </head>
-  <body>
+  <body style="display:flex; flex-direction:column; min-height:100vh;">
     <header style="border-bottom: 0.5px solid var(--color-border);">
       <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; padding: 20px 0;">
         <a href="/" style="font-family: var(--font-display); font-weight:500; font-size:19px; color: var(--color-ink); letter-spacing:-0.02em;">
@@ -23,7 +23,7 @@ const { title = "Westport, Unfiltered" } = Astro.props;
       </div>
     </header>
 
-    <main>
+    <main style="flex:1;">
       <slot />
     </main>
 
