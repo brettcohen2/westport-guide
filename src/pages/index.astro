@@ -32,11 +32,11 @@ const quickLinks = [
     <div style="display:flex; gap:10px; overflow-x:auto; padding: 18px 0;">
       {quickLinks.map(link => (
         
-          href={`/restaurants?tag=${encodeURIComponent(link.tag)}`}
-          style="border:0.5px solid var(--color-border-strong); border-radius: var(--radius-sm); padding:8px 14px; font-size:12.5px; color: var(--color-ink-soft); white-space:nowrap; flex-shrink:0;"
-        >
-          {link.label}
-        </a>
+        href={"/restaurants?tag=" + encodeURIComponent(link.tag)}
+        style="border:0.5px solid var(--color-border-strong); border-radius: var(--radius-sm); padding:8px 14px; font-size:12.5px; color: var(--color-ink-soft); white-space:nowrap; flex-shrink:0;"
+      >
+        {link.label}
+      </a>
       ))}
     </div>
   </section>
