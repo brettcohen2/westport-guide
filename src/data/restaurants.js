@@ -11,14 +11,13 @@ export const restaurants = [
     score: 8,
     scoreExplainer: "Excellent seafood and a room that feels like an occasion, docked a couple points for portion size relative to price and for how loud it gets after 7pm on weekends.",
     review: [
-      "The raw bar alone is worth the wait on a Friday. Ask for the corner table by the window, the one regulars request and the one the hostess will not offer unless you know to ask.",
-      "Service leans attentive without hovering, which matters when you are two rounds of oysters deep and not ready to order entrees yet. The dining room gets loud after 7, so if conversation matters more than atmosphere, grab an early table or ask to sit outside when the weather allows.",
-      "It is not cheap, and portions run smaller than the price suggests, so this is a place for a real occasion rather than a casual Tuesday. But for what it is, it delivers, and it is one of the rare spots in town where the seafood actually tastes like it came off a boat that morning."
+      "Placeholder review copy — lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     ],
-    whatToOrder: ["Baked oysters", "Lobster roll", "Little Neck clams"],
+    whatToOrder: ["Dish 1", "Dish 2", "Dish 3"],
     tags: ["Date night", "Outdoor seating", "Reservations recommended"],
-    address: "994 Post Rd E, Westport, CT",
-    website: "thewhelkwestport.com",
+    address: "Road, Westport, CT",
+    website: "domain.com",
     photoColor: "#3B5A6B"
   },
   {
@@ -35,8 +34,8 @@ export const restaurants = [
     ],
     whatToOrder: ["Dish 1", "Dish 2"],
     tags: ["Casual", "Outdoor seating"],
-    address: "123 Saugatuck Ave, Westport, CT",
-    website: "blupointbar.com",
+    address: "Road, Westport, CT",
+    website: "domain.com",
     photoColor: "#C4622D"
   },
   {
@@ -53,8 +52,8 @@ export const restaurants = [
     ],
     whatToOrder: ["Dish 1", "Dish 2", "Dish 3"],
     tags: ["Kid-friendly", "Cheap eats"],
-    address: "45 Main St, Westport, CT",
-    website: "littlebarnwestport.com",
+    address: "Road, Westport, CT",
+    website: "domain.com",
     photoColor: "#5C6B4F"
   },
   {
@@ -70,8 +69,8 @@ export const restaurants = [
     ],
     whatToOrder: ["Dish 1"],
     tags: ["Cheap eats", "Quick lunch"],
-    address: "8 Saugatuck Ave, Westport, CT",
-    website: "ryeridgedeli.com",
+    address: "Road, Westport, CT",
+    website: "domain.com",
     photoColor: "#8A7A68"
   },
   {
@@ -88,8 +87,8 @@ export const restaurants = [
     ],
     whatToOrder: ["Dish 1", "Dish 2"],
     tags: ["Family-friendly", "Reservations recommended"],
-    address: "310 Greens Farms Rd, Westport, CT",
-    website: "greensfarmstavern.com",
+    address: "Road, Westport, CT",
+    website: "domain.com",
     photoColor: "#B7AF9E"
   },
   {
@@ -105,8 +104,8 @@ export const restaurants = [
     ],
     whatToOrder: ["Dish 1", "Dish 2"],
     tags: ["Casual", "Beachfront", "Cheap eats"],
-    address: "Compo Beach Rd, Westport, CT",
-    website: "compoclamshack.com",
+    address: "Road, Westport, CT",
+    website: "domain.com",
     photoColor: "#3B5A6B"
   }
 ];
