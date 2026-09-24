@@ -3,7 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import RestaurantCard from "../components/RestaurantCard.jsx";
 import { restaurants } from "../data/restaurants.js";
 
-const recent = restaurants.slice(0, 3);
+const recent = restaurants.slice(0, 6);
+
+const quickLinks = [
+  { label: "Date night", tag: "Date night" },
+  { label: "Kid-friendly", tag: "Kid-friendly" },
+  { label: "Cheap eats", tag: "Cheap eats" },
+  { label: "Outdoor seating", tag: "Outdoor seating" },
+];
 ---
 <Layout title="Westport, Unfiltered">
   <section class="wrap" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:0; align-items:center; padding: 44px 0 36px;">
@@ -21,11 +28,43 @@ const recent = restaurants.slice(0, 3);
     </div>
   </section>
 
+  <section class="wrap" style="padding: 8px 0 32px; border-top: 0.5px solid var(--color-border); border-bottom: 0.5px solid var(--color-border);">
+    <div style="display:flex; gap:10px; overflow-x:auto; padding: 18px 0;">
+      {quickLinks.map(link => (
+        
+          href={`/restaurants?tag=${encodeURIComponent(link.tag)}`}
+          style="border:0.5px solid var(--color-border-strong); border-radius: var(--radius-sm); padding:8px 14px; font-size:12.5px; color: var(--color-ink-soft); white-space:nowrap; flex-shrink:0;"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </section>
+
   <section class="wrap" style="padding: 28px 0;">
-    <h2 style="font-size:16px; margin-bottom: 6px;">Recently reviewed</h2>
+    <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 6px;">
+      <h2 style="font-size:16px;">Recently reviewed</h2>
+      <a href="/restaurants" style="font-size:12.5px; color: var(--color-sound);">View all</a>
+    </div>
     <p style="font-size:12.5px; color: var(--color-ink-muted); margin-bottom:16px;">Updated a few times a month</p>
-    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:16px;">
-      {recent.map(r => <RestaurantCard restaurant={r} client:visible />)}
+    <div class="shelf" style="display:flex; gap:16px; overflow-x:auto; padding-bottom: 8px;">
+      {recent.map(r => (
+        <div style="min-width: 220px; max-width: 220px; flex-shrink:0;">
+          <RestaurantCard restaurant={r} client:visible />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" style="padding: 12px 0 44px; display:grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items:center;">
+    <div style="background: var(--color-shingle); min-height: 180px; border-radius: var(--radius);"></div>
+    <div>
+      <h2 style="font-size:18px; margin-bottom:10px;">Who's behind this</h2>
+      <p style="font-size:13.5px; line-height:1.7; color: var(--color-ink-soft); margin-bottom:14px; max-width: 42ch;">
+        We're the two people eating our way through Westport so you don't have to guess.
+        No sponsored visits, no press-release copy — just our honest take.
+      </p>
+      <a href="/about" style="font-size:13px; font-weight:500; color: var(--color-sound);">Meet us →</a>
     </div>
   </section>
 </Layout>
