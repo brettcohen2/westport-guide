@@ -27,8 +27,8 @@ const { name, category, price, neighborhood, score, scoreExplainer, review, what
 
   <div class="wrap detail-grid" style="padding-top:24px; display:grid; grid-template-columns: 1.4fr 1fr; gap:28px;">
     <div>
-      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:6px;">
-        <h1 style="font-size:26px;">{name}</h1>
+      <div class="title-row" style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:6px;">
+        <h1 class="detail-title" style="font-size:26px;">{name}</h1>
         <div style="text-align:center; flex-shrink:0;">
           <p style="font-family: var(--font-display); font-weight:600; font-size:22px; color: var(--color-sound); margin:0; line-height:1;">{score}</p>
           <p style="font-size:10px; color: var(--color-ink-muted); margin:2px 0 0;">out of 10</p>
@@ -77,6 +77,10 @@ const { name, category, price, neighborhood, score, scoreExplainer, review, what
   <style>
     @media (max-width: 720px) {
       .detail-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 420px) {
+      .detail-title { font-size: 22px !important; }
+      .title-row { flex-wrap: wrap; }
     }
   </style>
 </Layout>
