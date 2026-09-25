@@ -28,7 +28,7 @@ const quickLinks = [
     </div>
   </section>
 
-  <section class="wrap" style="padding: 8px 0 32px; border-top: 0.5px solid var(--color-border); border-bottom: 0.5px solid var(--color-border);">
+  <section class="wrap" style="padding-top: 8px; padding-bottom: 32px; border-top: 0.5px solid var(--color-border); border-bottom: 0.5px solid var(--color-border);">
     <div style="display:flex; gap:10px; overflow-x:auto; padding: 18px 0;">
       {quickLinks.map(link => (
         <a
@@ -41,7 +41,7 @@ const quickLinks = [
     </div>
   </section>
 
-  <section class="wrap" style="padding: 28px 0;">
+  <section class="wrap" style="padding-top: 28px; padding-bottom: 28px;">
     <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 6px;">
       <h2 style="font-size:16px;">Recently reviewed</h2>
       <a href="/restaurants" style="font-size:12.5px; color: var(--color-sound);">View all</a>
@@ -74,7 +74,8 @@ const quickLinks = [
       grid-template-columns: 1.1fr 0.9fr;
       gap: 28px;
       align-items: center;
-      padding: 44px 0 36px;
+      padding-top: 44px;
+      padding-bottom: 36px;
     }
     .hero-photo {
       background: var(--color-shingle);
@@ -89,7 +90,8 @@ const quickLinks = [
       grid-template-columns: 1fr 1fr;
       gap: 28px;
       align-items: center;
-      padding: 12px 0 44px;
+      padding-top: 12px;
+      padding-bottom: 44px;
     }
     .about-teaser-photo {
       background: var(--color-shingle);
@@ -100,7 +102,8 @@ const quickLinks = [
     @media (max-width: 720px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        padding: 28px 0 24px;
+        padding-top: 28px;
+        padding-bottom: 24px;
       }
       .hero-photo {
         min-height: 180px;
