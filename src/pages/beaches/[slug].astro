@@ -1,6 +1,6 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import { beaches } from "../../../data/beaches.js";
+import Layout from "../../layouts/Layout.astro";
+import { beaches } from "../../data/beaches.js";
 
 export function getStaticPaths() {
   return beaches.map(p => ({
