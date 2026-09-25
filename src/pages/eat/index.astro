@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import EatDirectory from "../../components/EatDirectory.jsx";
+import { eats, getAllTags } from "../../data/eat.js";
+
+const tags = getAllTags();
+---
+<Layout title="Eat — Westport, Unfiltered">
+  <section class="wrap" style="padding-top: 24px; padding-bottom: 16px;">
+    <h1 style="font-size:24px; margin-bottom:6px;">Eat</h1>
+    <p style="font-size:13px; color: var(--color-ink-soft);">
+      Every place on this list has been eaten at by two actual locals — no sponsored visits, no press-release copy.
+    </p>
+  </section>
+
+  <section class="wrap" style="padding-bottom: 40px;">
+    <EatDirectory items={eats} tags={tags} client:load />
+  </section>
+</Layout>

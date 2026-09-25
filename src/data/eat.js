@@ -1,7 +1,7 @@
 // Placeholder content — structured to match the field list agreed on with the client.
 // Swap this file for a Sanity fetch once the schema is finalized (see README).
 
-export const restaurants = [
+export const eats = [
   {
     slug: "the-whelk",
     name: "The Whelk",
@@ -113,10 +113,10 @@ export const restaurants = [
 
 export function getAllTags() {
   const set = new Set();
-  restaurants.forEach(r => r.tags.forEach(t => set.add(t)));
+  eats.forEach(r => r.tags.forEach(t => set.add(t)));
   return Array.from(set);
 }
 
-export function getRestaurantBySlug(slug) {
-  return restaurants.find(r => r.slug === slug);
+export function getEatBySlug(slug) {
+  return eats.find(r => r.slug === slug);
 }
