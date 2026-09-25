@@ -1,6 +1,6 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import { parks } from "../../../data/parks.js";
+import Layout from "../../layouts/Layout.astro";
+import { parks } from "../../data/parks.js";
 
 export function getStaticPaths() {
   return parks.map(p => ({
