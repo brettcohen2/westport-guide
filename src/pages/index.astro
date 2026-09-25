@@ -1,21 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import RestaurantCard from "../components/RestaurantCard.jsx";
+import EatCard from "../components/EatCard.jsx";
 import ExploreCard from "../components/ExploreCard.jsx";
-import { restaurants } from "../data/restaurants.js";
+import { eats } from "../data/eat.js";
 import { parks } from "../data/parks.js";
 import { beaches } from "../data/beaches.js";
 import { attractions } from "../data/attractions.js";
 
-const recentRestaurants = restaurants.slice(0, 6);
+const recentEats = eats.slice(0, 6);
 const exploreFeatured = [...parks, ...beaches, ...attractions].slice(0, 6);
-
-const quickLinks = [
-  { label: "Date night", tag: "Date night" },
-  { label: "Kid-friendly", tag: "Kid-friendly" },
-  { label: "Cheap eats", tag: "Cheap eats" },
-  { label: "Outdoor seating", tag: "Outdoor seating" },
-];
 ---
 <Layout title="Westport, Unfiltered">
   <section class="wrap hero-grid">
@@ -25,7 +18,7 @@ const quickLinks = [
         Where to eat, where to go, and what's actually worth your time — from two people who live here. No sponsored placements, no press-release copy.
       </p>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="/restaurants" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color: var(--color-bg); background: var(--color-sound); padding: 10px 16px; border-radius: var(--radius-sm);">
+        <a href="/eat" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color: var(--color-bg); background: var(--color-sound); padding: 10px 16px; border-radius: var(--radius-sm);">
           Browse restaurants
         </a>
         <a href="/explore" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color: var(--color-sound); border: 0.5px solid var(--color-border-strong); padding: 10px 16px; border-radius: var(--radius-sm);">
@@ -38,20 +31,7 @@ const quickLinks = [
     </div>
   </section>
 
-  <section class="wrap" style="padding-top: 8px; padding-bottom: 32px; border-top: 0.5px solid var(--color-border); border-bottom: 0.5px solid var(--color-border);">
-    <div style="display:flex; gap:10px; overflow-x:auto; padding: 18px 0;">
-      {quickLinks.map(link => (
-        <a
-          href={"/restaurants?tag=" + encodeURIComponent(link.tag)}
-          style="border:0.5px solid var(--color-border-strong); border-radius: var(--radius-sm); padding:8px 14px; font-size:12.5px; color: var(--color-ink-soft); white-space:nowrap; flex-shrink:0;"
-        >
-          {link.label}
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="wrap" style="padding-top: 28px; padding-bottom: 28px;">
+  <section class="wrap" style="padding-top: 28px; padding-bottom: 28px; border-top: 0.5px solid var(--color-border);">
     <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 6px;">
       <h2 style="font-size:16px;">Explore Westport</h2>
       <a href="/explore" style="font-size:12.5px; color: var(--color-sound);">View all</a>
@@ -68,14 +48,14 @@ const quickLinks = [
 
   <section class="wrap" style="padding-top: 8px; padding-bottom: 28px;">
     <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 6px;">
-      <h2 style="font-size:16px;">Recently reviewed restaurants</h2>
-      <a href="/restaurants" style="font-size:12.5px; color: var(--color-sound);">View all</a>
+      <h2 style="font-size:16px;">Latest reviews</h2>
+      <a href="/eat" style="font-size:12.5px; color: var(--color-sound);">View all</a>
     </div>
     <p style="font-size:12.5px; color: var(--color-ink-muted); margin-bottom:16px;">Updated a few times a month</p>
     <div class="shelf" style="display:flex; gap:16px; overflow-x:auto; padding-bottom: 8px;">
-      {recentRestaurants.map(r => (
+      {recentEats.map(r => (
         <div style="min-width: 220px; max-width: 220px; flex-shrink:0;">
-          <RestaurantCard restaurant={r} client:visible />
+          <EatCard item={r} client:visible />
         </div>
       ))}
     </div>
