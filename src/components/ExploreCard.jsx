@@ -9,7 +9,7 @@ export default function ExploreCard({ item }) {
 
   return (
     <a
-      href={"/explore/" + typeToPath[type] + "/" + slug}
+      href={"/" + typeToPath[type] + "/" + slug}
       style={{
         display: "block",
         border: "0.5px solid var(--color-border)",
