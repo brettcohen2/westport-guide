@@ -1,6 +1,6 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import { attractions } from "../../../data/attractions.js";
+import Layout from "../../layouts/Layout.astro";
+import { attractions } from "../../data/attractions.js";
 
 export function getStaticPaths() {
   return attractions.map(p => ({
