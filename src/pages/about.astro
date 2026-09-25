@@ -5,8 +5,8 @@ import Layout from "../layouts/Layout.astro";
   <section class="wrap" style="padding: 40px 0; max-width: 640px;">
     <h1 style="font-size:26px; margin-bottom:20px;">About</h1>
 
-    <div style="background: var(--color-shingle); border-radius: var(--radius); height: 280px; margin-bottom:20px; display:flex; align-items:flex-end; padding:16px;">
-      <span style="font-size:12px; color:#2C2C2A; opacity:0.7;">photo, somewhere in Westport</span>
+    <div class="about-photo" style="background: var(--color-shingle); border-radius: var(--radius); height: 280px; margin-bottom:20px; display:flex; align-items:flex-end; padding:16px;">
+      <span style="font-size:12px; color:#2C2C2A; opacity:0.7;">photo — [Names], somewhere in Westport</span>
     </div>
 
     <p style="font-size:14px; line-height:1.7; color: var(--color-ink-soft); margin-bottom:24px;">
@@ -24,4 +24,10 @@ import Layout from "../layouts/Layout.astro";
       A 6 means it's fine, but we wouldn't rearrange our week for it.
     </p>
   </section>
+
+  <style>
+    @media (max-width: 480px) {
+      .about-photo { height: 200px !important; }
+    }
+  </style>
 </Layout>
