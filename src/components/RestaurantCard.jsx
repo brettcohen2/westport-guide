@@ -3,7 +3,7 @@ export default function RestaurantCard({ restaurant }) {
 
   return (
     <a
-      href={`/restaurants/${slug}`}
+      href={"/restaurants/" + slug}
       style={{
         display: "block",
         border: "0.5px solid var(--color-border)",
