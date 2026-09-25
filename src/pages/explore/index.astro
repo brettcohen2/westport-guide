@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExploreDirectory from "../../components/ExploreDirectory.jsx";
+import { parks } from "../../data/parks.js";
+import { beaches } from "../../data/beaches.js";
+import { attractions } from "../../data/attractions.js";
+---
+<Layout title="Explore — Westport, Unfiltered">
+  <section class="wrap" style="padding-top: 24px; padding-bottom: 16px;">
+    <h1 style="font-size:24px; margin-bottom:6px;">Explore</h1>
+    <p style="font-size:13px; color: var(--color-ink-soft);">
+      Parks, beaches, and the odd bit of culture — the non-restaurant side of Westport.
+    </p>
+  </section>
+
+  <section class="wrap" style="padding-bottom: 40px;">
+    <ExploreDirectory parks={parks} beaches={beaches} attractions={attractions} client:load />
+  </section>
+</Layout>

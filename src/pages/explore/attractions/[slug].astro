@@ -1,0 +1,69 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { attractions } from "../../../data/attractions.js";
+
+export function getStaticPaths() {
+  return attractions.map(p => ({
+    params: { slug: p.slug },
+    props: { item: p },
+  }));
+}
+
+const { item } = Astro.props;
+const { name, neighborhood, description, quickFacts, tags, address, website, photoColor } = item;
+---
+<Layout title={`${name} — Westport, Unfiltered`}>
+  <div class="wrap" style="padding-top: 14px;">
+    <p style="font-size:12px; color: var(--color-ink-muted);">
+      <a href="/explore" style="color: var(--color-ink-muted);">Explore</a> / {name}
+    </p>
+  </div>
+
+  <div class="wrap" style="padding-top:14px;">
+    <div style={`background:${photoColor}; min-height:200px; border-radius: var(--radius); display:flex; align-items:flex-end; padding:16px;`}>
+      <span style="font-size:12px; color:#DCE4E8; opacity:0.85;">photo — {name}</span>
+    </div>
+  </div>
+
+  <div class="wrap detail-grid" style="padding-top:24px; display:grid; grid-template-columns: 1.4fr 1fr; gap:28px;">
+    <div>
+      <h1 style="font-size:26px; margin-bottom:6px;">{name}</h1>
+      <p style="font-size:13px; color: var(--color-ink-soft); margin-bottom:16px;">Attraction · {neighborhood}</p>
+
+      {description.map(paragraph => (
+        <p style="font-size:14px; line-height:1.7; color:#3B3E39; margin-bottom:12px;">{paragraph}</p>
+      ))}
+    </div>
+
+    <div>
+      <div style="background: var(--color-bg-tint); border-radius: var(--radius); padding:18px; margin-bottom:14px;">
+        {quickFacts.map(fact => (
+          <div style="margin-bottom:12px;">
+            <p style="font-size:11px; color: var(--color-ink-muted); margin-bottom:4px;">{fact.label}</p>
+            <p style="font-size:13px; margin:0;">{fact.value}</p>
+          </div>
+        ))}
+        <p style="font-size:11px; color: var(--color-ink-muted); margin-bottom:4px;">Address</p>
+        <p style="font-size:13px; margin-bottom:12px;">{address}</p>
+        <p style="font-size:11px; color: var(--color-ink-muted); margin-bottom:4px;">Website</p>
+        <p style="font-size:13px; color: var(--color-sound); margin:0;">{website}</p>
+      </div>
+
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin: 16px 0;">
+        {tags.map(tag => (
+          <span style="border:0.5px solid var(--color-border-strong); border-radius: var(--radius-sm); padding:5px 10px; font-size:11.5px; color: var(--color-ink-soft);">{tag}</span>
+        ))}
+      </div>
+
+      <div style="background: var(--color-shingle); border-radius: var(--radius); height:140px; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:12px; color:#5C5450;">map embed — {address}</span>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width: 720px) {
+      .detail-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</Layout>
