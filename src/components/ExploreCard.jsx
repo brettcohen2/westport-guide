@@ -2,8 +2,8 @@ export default function ExploreCard({ item }) {
   const { slug, type, name, neighborhood, photoColor } = item;
 
   const typeToPath = {
-    Park: "parks",
-    Beach: "beaches",
+    Park: "outdoors",
+    Beach: "outdoors",
     Attraction: "attractions",
   };
 

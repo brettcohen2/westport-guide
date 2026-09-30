@@ -6,6 +6,7 @@ export const attractions = [
     slug: "westport-country-playhouse",
     name: "Westport Country Playhouse",
     type: "Attraction",
+    category: "Attractions",
     neighborhood: "Downtown",
     description: "Placeholder description — lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quickFacts: [
@@ -26,6 +27,7 @@ export const attractions = [
     slug: "the-westport-library",
     name: "The Westport Library",
     type: "Attraction",
+    category: "Attractions",
     neighborhood: "Downtown",
     description: "Placeholder description — lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quickFacts: [

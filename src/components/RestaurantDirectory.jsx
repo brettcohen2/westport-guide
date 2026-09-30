@@ -1,39 +1,35 @@
-import { useState, useEffect, useMemo } from "react";
-import ExploreCard from "./ExploreCard.jsx";
+import { useState, useMemo, useEffect } from "react";
+import RestaurantCard from "./RestaurantCard.jsx";
 
-export default function ExploreDirectory({ items }) {
-  const [activeTab, setActiveTab] = useState("All");
+export default function RestaurantDirectory({ restaurants, tags }) {
+  const [activeTag, setActiveTag] = useState(null);
 
+  // If the page was linked to with ?tag=Something (e.g. from the homepage
+  // quick links), pre-select that filter on load.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const categoryParam = params.get("category");
-    if (categoryParam && ["Outdoors", "Attractions"].includes(categoryParam)) {
-      setActiveTab(categoryParam);
+    const tagParam = params.get("tag");
+    if (tagParam && tags.includes(tagParam)) {
+      setActiveTag(tagParam);
     }
   }, []);
 
   const filtered = useMemo(() => {
-    if (activeTab === "All") return items;
-    return items.filter(item => item.category === activeTab);
-  }, [activeTab, items]);
-
-  const tabs = ["All", "Outdoors", "Attractions"];
+    if (!activeTag) return restaurants;
+    return restaurants.filter(r => r.tags.includes(activeTag));
+  }, [activeTag, restaurants]);
 
   return (
     <div>
       <div style={{ display: "flex", gap: 10, overflowX: "auto", marginBottom: 20 }}>
-        {tabs.map(tab => (
-          <Tab
-            key={tab}
-            label={tab}
-            active={activeTab === tab}
-            onClick={() => setActiveTab(tab)}
-          />
+        <Chip label="All" active={activeTag === null} onClick={() => setActiveTag(null)} />
+        {tags.map(tag => (
+          <Chip key={tag} label={tag} active={activeTag === tag} onClick={() => setActiveTag(tag)} />
         ))}
       </div>
 
       {filtered.length === 0 ? (
-        <p style={{ fontSize: 13, color: "var(--color-ink-soft)" }}>Nothing here yet.</p>
+        <p style={{ fontSize: 13, color: "var(--color-ink-soft)" }}>No restaurants match that filter yet.</p>
       ) : (
         <div
           style={{
@@ -42,8 +38,8 @@ export default function ExploreDirectory({ items }) {
             gap: 16,
           }}
         >
-          {filtered.map(item => (
-            <ExploreCard key={item.category + item.slug} item={item} />
+          {filtered.map(r => (
+            <RestaurantCard key={r.slug} restaurant={r} />
           ))}
         </div>
       )}
@@ -51,7 +47,7 @@ export default function ExploreDirectory({ items }) {
   );
 }
 
-function Tab({ label, active, onClick }) {
+function Chip({ label, active, onClick }) {
   return (
     <button
       onClick={onClick}

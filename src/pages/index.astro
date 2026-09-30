@@ -3,12 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import EatCard from "../components/EatCard.jsx";
 import ExploreCard from "../components/ExploreCard.jsx";
 import { eats } from "../data/eat.js";
-import { parks } from "../data/parks.js";
-import { beaches } from "../data/beaches.js";
+import { outdoors } from "../data/outdoors.js";
 import { attractions } from "../data/attractions.js";
 
 const recentEats = eats.slice(0, 6);
-const exploreFeatured = [...parks, ...beaches, ...attractions].slice(0, 6);
+const exploreFeatured = [...outdoors, ...attractions].slice(0, 6);
 ---
 <Layout title="Westport, Unfiltered">
   <section class="wrap hero-grid">

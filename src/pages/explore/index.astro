@@ -1,9 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ExploreDirectory from "../../components/ExploreDirectory.jsx";
-import { parks } from "../../data/parks.js";
-import { beaches } from "../../data/beaches.js";
+import { outdoors } from "../../data/outdoors.js";
 import { attractions } from "../../data/attractions.js";
+
+const items = [...outdoors, ...attractions];
 ---
 <Layout title="Explore — Westport, Unfiltered">
   <section class="wrap" style="padding-top: 24px; padding-bottom: 16px;">
@@ -14,6 +15,6 @@ import { attractions } from "../../data/attractions.js";
   </section>
 
   <section class="wrap" style="padding-bottom: 40px;">
-    <ExploreDirectory parks={parks} beaches={beaches} attractions={attractions} client:load />
+    <ExploreDirectory items={items} client:load />
   </section>
 </Layout>
