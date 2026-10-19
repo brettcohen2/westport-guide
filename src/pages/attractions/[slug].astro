@@ -1,16 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { attractions } from "../../data/attractions.js";
+import { outdoors } from "../../data/outdoors.js";
 
 export function getStaticPaths() {
-  return attractions.map(p => ({
-    params: { slug: p.slug },
-    props: { item: p },
+  return outdoors.map(o => ({
+    params: { slug: o.slug },
+    props: { item: o },
   }));
 }
 
 const { item } = Astro.props;
-const { name, neighborhood, description, quickFacts, goodToKnow, tags, address, website, photoColor } = item;
+const { name, type, neighborhood, description, quickFacts, goodToKnow, tags, address, website, websiteUrl, photoColor } = item;
 ---
 <Layout title={"" + name + " — Westport, Unfiltered"}>
   <div class="wrap" style="padding-top: 14px;">
@@ -28,10 +28,11 @@ const { name, neighborhood, description, quickFacts, goodToKnow, tags, address, 
   <div class="wrap detail-grid" style="padding-top:24px; display:grid; grid-template-columns: 1.4fr 1fr; gap:28px;">
     <div>
       <h1 style="font-size:26px; margin-bottom:6px;">{name}</h1>
-      <p style="font-size:13px; color: var(--color-ink-soft); margin-bottom:16px;">Attraction · {neighborhood}</p>
+      <p style="font-size:13px; color: var(--color-ink-soft); margin-bottom:16px;">{type} · {neighborhood}</p>
 
       <p style="font-size:14px; line-height:1.7; color:#3B3E39; margin-bottom:16px;">{description}</p>
 
+      {goodToKnow.length > 0 && (
       <div style="background: var(--color-bg-tint); border-radius: var(--radius); padding:16px 18px; margin-bottom:16px;">
         <p style="font-family: var(--font-display); font-weight:500; font-size:13px; margin-bottom:8px; color: var(--color-sound);">Good to know</p>
         <ul style="margin:0; padding-left:18px;">
@@ -40,6 +41,7 @@ const { name, neighborhood, description, quickFacts, goodToKnow, tags, address, 
           ))}
         </ul>
       </div>
+      )}
 
       <div style="display:flex; gap:6px; flex-wrap:wrap;">
         {tags.map(tag => (
@@ -58,8 +60,12 @@ const { name, neighborhood, description, quickFacts, goodToKnow, tags, address, 
         ))}
         <p style="font-size:11px; color: var(--color-ink-muted); margin-bottom:4px;">Address</p>
         <p style="font-size:13px; margin-bottom:12px;">{address}</p>
-        <p style="font-size:11px; color: var(--color-ink-muted); margin-bottom:4px;">Website</p>
-        <p style="font-size:13px; color: var(--color-sound); margin:0;">{website}</p>
+        {website && (
+          <div>
+            <p style="font-size:11px; color: var(--color-ink-muted); margin-bottom:4px;">Website</p>
+            <p style="font-size:13px; margin:0;"><a href={websiteUrl} target="_blank" rel="noopener noreferrer" style="color: var(--color-sound); word-break: break-all;">{website}</a></p>
+          </div>
+        )}
       </div>
     </div>
   </div>
