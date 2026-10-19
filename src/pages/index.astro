@@ -7,7 +7,9 @@ import { outdoors } from "../data/outdoors.js";
 import { attractions } from "../data/attractions.js";
 
 const recentEats = eats.slice(0, 6);
-const exploreFeatured = [...outdoors, ...attractions].slice(0, 6);
+const exploreAll = [...outdoors, ...attractions];
+const featuredPicks = exploreAll.filter(i => i.featured);
+const exploreFeatured = (featuredPicks.length > 0 ? featuredPicks : exploreAll).slice(0, 6);
 ---
 <Layout title="Westport, Unfiltered">
   <section class="wrap hero-grid">
