@@ -1,5 +1,5 @@
 export default function ExploreCard({ item }) {
-  const { slug, type, name, neighborhood, photoColor } = item;
+  const { slug, type, name, neighborhood, photoColor, photo } = item;
 
   const typeToPath = {
     Park: "outdoors",
@@ -19,7 +19,11 @@ export default function ExploreCard({ item }) {
         color: "inherit",
       }}
     >
-      <div style={{ background: photoColor, height: 140 }} />
+      {photo ? (
+        <img src={photo} alt={name} style={{ width: "100%", height: 140, objectFit: "cover", display: "block" }} />
+      ) : (
+        <div style={{ background: photoColor, height: 140 }} />
+      )}
       <div style={{ padding: 14 }}>
         <p style={{ fontSize: 14, fontWeight: 500, margin: 0 }}>{name}</p>
         <p style={{ fontSize: 12, color: "var(--color-ink-soft)", margin: "4px 0 0" }}>

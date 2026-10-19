@@ -5,9 +5,10 @@ import ExploreCard from "../components/ExploreCard.jsx";
 import { eats } from "../data/eat.js";
 import { outdoors } from "../data/outdoors.js";
 import { attractions } from "../data/attractions.js";
+import { withPhotos } from "../lib/photos.js";
 
 const recentEats = eats.slice(0, 6);
-const exploreAll = [...outdoors, ...attractions];
+const exploreAll = withPhotos([...outdoors, ...attractions]);
 const featuredPicks = exploreAll.filter(i => i.featured);
 const exploreFeatured = (featuredPicks.length > 0 ? featuredPicks : exploreAll).slice(0, 6);
 ---

@@ -3,8 +3,9 @@ import Layout from "../../layouts/Layout.astro";
 import ExploreDirectory from "../../components/ExploreDirectory.jsx";
 import { outdoors } from "../../data/outdoors.js";
 import { attractions } from "../../data/attractions.js";
+import { withPhotos } from "../../lib/photos.js";
 
-const items = [...outdoors, ...attractions];
+const items = withPhotos([...outdoors, ...attractions]);
 ---
 <Layout title="Explore — Westport, Unfiltered">
   <section class="wrap" style="padding-top: 24px; padding-bottom: 16px;">
