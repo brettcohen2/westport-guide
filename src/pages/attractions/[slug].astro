@@ -1,16 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { outdoors } from "../../data/outdoors.js";
+import { attractions } from "../../data/attractions.js";
 
 export function getStaticPaths() {
-  return outdoors.map(o => ({
-    params: { slug: o.slug },
-    props: { item: o },
+  return attractions.map(p => ({
+    params: { slug: p.slug },
+    props: { item: p },
   }));
 }
 
 const { item } = Astro.props;
-const { name, type, neighborhood, description, quickFacts, goodToKnow, tags, address, website, websiteUrl, photoColor } = item;
+const { name, neighborhood, description, quickFacts, goodToKnow, tags, address, website, websiteUrl, photoColor } = item;
 ---
 <Layout title={"" + name + " — Westport, Unfiltered"}>
   <div class="wrap" style="padding-top: 14px;">
@@ -28,7 +28,7 @@ const { name, type, neighborhood, description, quickFacts, goodToKnow, tags, add
   <div class="wrap detail-grid" style="padding-top:24px; display:grid; grid-template-columns: 1.4fr 1fr; gap:28px;">
     <div>
       <h1 style="font-size:26px; margin-bottom:6px;">{name}</h1>
-      <p style="font-size:13px; color: var(--color-ink-soft); margin-bottom:16px;">{type} · {neighborhood}</p>
+      <p style="font-size:13px; color: var(--color-ink-soft); margin-bottom:16px;">Attraction · {neighborhood}</p>
 
       <p style="font-size:14px; line-height:1.7; color:#3B3E39; margin-bottom:16px;">{description}</p>
 
