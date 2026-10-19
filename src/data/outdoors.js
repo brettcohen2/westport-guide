@@ -51,7 +51,7 @@ export const outdoors = [
     website: "westportct.gov",
     websiteUrl: "https://www.westportct.gov/government/departments-a-z/parks-and-recreation/beaches/compo-beach",
     photoColor: "#3B5A6B",
-    photo: "/images/stock/beach-01.jpg",
+    photo: "/images/explore/beach-01.jpg",
     featured: true
   },
   {
